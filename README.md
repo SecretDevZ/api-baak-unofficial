@@ -46,7 +46,7 @@ Nilai yang diizinkan untuk `tipe`:
 curl "https://api.500.xx.kg/cari-maba?teks=Budi"
 
 # Cari semua mahasiswa di kelas "1IA01"
-curl " https://api.500.xx.kg/cari-maba?teks=1IA01&tipe=Kelas"
+curl "https://api.500.xx.kg/cari-maba?teks=1IA01&tipe=Kelas"
 ```
 
 #### Contoh Hasil
@@ -83,7 +83,7 @@ Cukup kirim:
 #### Contoh
 
 ```bash
-curl " https://api.500.xx.kg/cari-jadwal?teks=1IA01"
+curl "https://api.500.xx.kg/cari-jadwal?teks=1IA01"
 ```
 
 #### Contoh Hasil
