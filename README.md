@@ -1,5 +1,7 @@
 # API BAAK Universitas Gunadarma (Tidak Resmi)
 
+![Preview API Response](https://raw.githubusercontent.com/SecretDevZ/api-baak-unofficial/main/assets/Screenshoot.webp)
+
 > ⚠️ **Ini bukan layanan resmi dari Universitas Gunadarma.**  
 > API ini dibuat oleh pihak ketiga dan tidak memiliki kaitan apa pun dengan BAAK atau Universitas Gunadarma.
 
