@@ -143,7 +143,8 @@ curl "https://api.500.xx.kg/cari-wali?teks=OCTARINA BUDI LESTARI"
 ```json
 {
   "success": true,
-  "query": "1IA01",
+  "query": "OCTARINA BUDI LESTARI",
+  "title": "Daftar Dosen Wali Kelas Semester Ganjil (PTA) 2025/2026",
   "total": 1,
   "results": [
     {
