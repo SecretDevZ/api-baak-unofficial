@@ -5,10 +5,10 @@
 > ⚠️ **Ini bukan layanan resmi dari Universitas Gunadarma.**  
 > API ini dibuat oleh pihak ketiga dan tidak memiliki kaitan apa pun dengan BAAK atau Universitas Gunadarma.
 
-API ini membantu Anda mengakses data akademik publik dari situs **BAAK Universitas Gunadarma** (https://baak.gunadarma.ac.id ) dalam format JSON yang mudah digunakan. Semua data diambil secara otomatis dari halaman yang **terbuka untuk umum**.
+API ini membantu Anda mengakses data akademik publik dari situs **BAAK Universitas Gunadarma** (https://baak.gunadarma.ac.id) dalam format JSON yang mudah digunakan. Semua data diambil secara otomatis dari halaman yang **terbuka untuk umum**.
 
 **Gunakan API ini di**:  
-https://api.500.xx.kg 
+https://api.500.xx.kg
 
 ---
 
@@ -22,7 +22,7 @@ Menurut situs resminya:
 
 ## Fitur yang Tersedia
 
-API ini menyediakan dua fungsi utama:
+API ini menyediakan tiga fungsi utama:
 
 ---
 
@@ -117,14 +117,57 @@ curl "https://api.500.xx.kg/cari-jadwal?teks=1IA01"
 
 ---
 
+### 3. Cari Dosen Wali Kelas — `/cari-wali`
+
+Cari **dosen wali** berdasarkan **kode kelas** atau **nama dosen**.
+
+Data ini berasal dari daftar "Dosen Wali Kelas Semester Ganjil (PTA) 2025/2026" yang tersedia di BAAK.
+
+#### Cara Pakai
+
+Kirim:
+- `teks` → kode kelas (misal: `1IA01`) **atau** nama dosen (misal: `OCTARINA BUDI LESTARI`) (wajib)
+
+#### Contoh
+
+```bash
+# Cari dosen wali untuk kelas "1IA01"
+curl "https://api.500.xx.kg/cari-wali?teks=1IA01"
+
+# Cari kelas yang dibimbing oleh dosen "OCTARINA BUDI LESTARI"
+curl "https://api.500.xx.kg/cari-wali?teks=OCTARINA BUDI LESTARI"
+```
+
+#### Contoh Hasil
+
+```json
+{
+  "success": true,
+  "query": "1IA01",
+  "total": 1,
+  "results": [
+    {
+      "kelas": "1IA01",
+      "dosen": "OCTARINA BUDI LESTARI"
+    }
+  ]
+}
+```
+
+> Catatan: Pencarian bersifat eksak (case-insensitive pada sisi server BAAK), dan hanya menampilkan hasil yang cocok persis dengan input.
+
+---
+
 ## Aturan & Keamanan
 
-- Hanya dua alamat yang bisa dipakai:  
-  ` https://api.500.xx.kg/cari-maba ` dan `https://api.500.xx.kg/cari-jadwal `
+- Hanya tiga alamat yang bisa dipakai:  
+  `https://api.500.xx.kg/cari-maba`,  
+  `https://api.500.xx.kg/cari-jadwal`, dan  
+  `https://api.500.xx.kg/cari-wali`
 - Jika Anda mengakses alamat lain, API akan menolak dengan error `404`.
 - Semua input divalidasi:
   - `teks` harus diisi
-  - `tipe` hanya boleh `Nama` atau `Kelas`
+  - `tipe` hanya boleh `Nama` atau `Kelas` (untuk `/cari-maba`)
 - Tidak ada data Anda yang disimpan.
 - Semua data berasal dari halaman publik — tidak ada akses ke data pribadi.
 
@@ -147,7 +190,7 @@ Pengembang **tidak bertanggung jawab** atas:
 - Penyalahgunaan API
 - Masalah hukum yang mungkin timbul
 
-Jika Anda perwakilan resmi Universitas Gunadarma dan keberatan dengan layanan ini, silakan hubungi pengembang.
+Jika Anda perwakilan resmi Universitas Gunadarma dan keberatan dengan layanan ini, silakan hubungi saya.
 
 ---
 
@@ -156,5 +199,5 @@ Jika Anda perwakilan resmi Universitas Gunadarma dan keberatan dengan layanan in
 - Dibuat dengan: **Cloudflare Workers**
 - Bahasa: **JavaScript**
 - Metode: **Scraping HTML sederhana** (tanpa browser)
-- Sumber data: https://baak.gunadarma.ac.id 
+- Sumber data: https://baak.gunadarma.ac.id
 - Domain: `api.500.xx.kg`
